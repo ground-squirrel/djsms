@@ -1,0 +1,36 @@
+README
+
+Ѕиблиотека представлет из себ€ простой набор транспортов дл€ смс.
+
+ аждый транспорт смс реализован в виде простого бэкэнда с реализацией единственного метода, send(phone, msg).
+¬ этой реализации просто ограничиваемс€ выводом в stdout переменных phone и msg.
+
+ѕротестировать работу библиотеки можно, использу€ файл test.py
+
+ƒл€ работы с библиотекой достаточно разместить каталог libsms в рабочей папке проекта.
+
+ онфигурирование библиотеки должно производитс€ в django settings
+
+ѕример:
+
+    SMS_TRANSPORTS = {
+        СdefaultТ: {
+            СBAKENDТ : Сlibsms.backends.sms.SmsTransportТ,
+            СPARAMSТ : {
+                СloginТ : Сsome_loginТ,
+                СpasswordТ : Сsome_passwordТ,
+            }
+        },
+        СdummyТ: {
+            СBAKENDТ : Сlibsms.backends.dummy.SmsTransportТ,
+        },
+        СotherТ: {
+            СBAKENDТ : Сlibsms.backends.other.SmsTransportТ,
+            СPARAMSТ : {
+                СloginТ : Сsome_loginТ,
+                СpasswordТ : Сsome_passwordТ,
+                var1 : Сvar1Т,
+                Сvar2Т : Сvar2Т,
+            }
+        }
+    }
