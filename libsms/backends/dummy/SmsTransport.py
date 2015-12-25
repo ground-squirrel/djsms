@@ -5,9 +5,10 @@
 Дополнительные параметры: отсутствуют
 """
 
-class sms_transport:
-    def send(phone, msg):
-        print("phone: ", phone, "; message: ", msg)
+from libsms.backends.basicSms import basicSmsTransport
+
+class smsTransport(basicSmsTransport):
+    pass
 
 if __name__ == "__main__":
-    sms_transport.send(phone="123123", msg="qweqwe")
+    smsTransport.send(phone="123123", msg="qweqwe")
